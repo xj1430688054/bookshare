@@ -50,13 +50,12 @@ public class ShiroConfig {
 		securityManager.setRealm(realm);
 
 		ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
-		shiroFilter.setSecurityManager(securityManager);
-		shiroFilter.setLoginUrl("/admin/login");
-		shiroFilter.setSuccessUrl("/admin/index");
-		shiroFilter.setUnauthorizedUrl("/previlige/no");
+
 		Map<String, String> filterChainDefinitionMap = new HashMap<String, String>();
 		filterChainDefinitionMap.put("/assets/**", "anon");
 		
+		filterChainDefinitionMap.put("/admin/**", "anon");
+		filterChainDefinitionMap.put("/regedit", "anon");
 		filterChainDefinitionMap.put("/admin/login", "anon");
 		
 		filterChainDefinitionMap.put("/admin/user/index", "perms[system:user:index]");
@@ -77,7 +76,12 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/admin/resource/deleteBatch", "perms[system:resource:deleteBatch]");
 		
 		filterChainDefinitionMap.put("/admin/**", "authc");
+
 		shiroFilter.setFilterChainDefinitionMap(filterChainDefinitionMap);
+		shiroFilter.setSecurityManager(securityManager);
+		shiroFilter.setLoginUrl("/admin/login");
+		shiroFilter.setSuccessUrl("/admin/index");
+		shiroFilter.setUnauthorizedUrl("/previlige/no");
 		return shiroFilter;
 	}
 }

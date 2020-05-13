@@ -33,15 +33,29 @@
 	                    ${message!}
 	                </div>
                 </#if>
-                <form method="post" action="${ctx!}/admin/login" id="frm">
-                    <h4 class="no-margins">登录：</h4>
+                   <form method="post" action="${ctx!}/regedit" id="frm">
+                    <h4 class="no-margins">注册：</h4>
                     <p class="m-t-md">欢迎来到图书分享</p>
-                    <input type="text" class="form-control uname" name="username" id="username" placeholder="用户名" />
+                    <input type="text" class="form-control uname" name="userName" id="userName" placeholder="用户名" />
                     <input type="password" class="form-control pword m-b" name="password" id="password"  placeholder="密码" />
-                    <a href="" class="forget">忘记密码了？请联系管理员手机号：110</a>
-                    <button class="btn btn-success btn-block">登录</button>
+                    
+                    
+            
+                                	<select name="sex" class="form-control">
+                                		<option value="0">女</option>
+                                		<option value="1">男</option>
+                                	</select>
+                    
+                      
+                      
+                    <input type="text" class="form-control uname" name="telephone" id="telephone"  placeholder="电话" />
+                    <input type="text" class="form-control uname" name="address" id="address"  placeholder="地址" />
+                    <input type="text" class="form-control uname" name="description" id="description"  placeholder="描述" />
+                    <input type="text" class="form-control uname" name="nickName" id="nickName"  placeholder="昵称" />
+                    <input type="text" class="form-control uname" name="credentialNo" id="credentialNo"  placeholder="身份证号" />
+
+                    <button class="btn btn-success btn-block">注册</button>
                 </form>
-                    <button class="btn btn-success btn-block" onclick="location.href='/regedit'"  class="btn">注册</button>
             </div>
         </div>
         <div class="signup-footer">

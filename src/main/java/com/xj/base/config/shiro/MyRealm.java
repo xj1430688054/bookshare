@@ -69,19 +69,26 @@ public class MyRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
-		String username = (String) token.getPrincipal();
-		
+//		String username = (String) token.getPrincipal();
+//		
 //		User user = userService.findByUserName(username);
-		User user = new User();
-		try {
-			user = userService.find(Integer.valueOf(username));
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			throw new UnknownAccountException("请输入正确的用户名 整数");
-		}
+//		User user = new User();
+//		try {
+//			user = userService.find(Integer.valueOf(username));
+//		} catch (NumberFormatException e) {
+//			// TODO Auto-generated catch block
+//			throw new UnknownAccountException("请输入正确的用户名 整数");
+//		}
 		
+	String username = (String) token.getPrincipal();
+		
+		User user = userService.findByUserName(username);
 		
 		String password = new String((char[]) token.getCredentials());
+
+		
+		
+//		String password = new String((char[]) token.getCredentials());
 
 		// 账号不存在
 		if (user == null) {
